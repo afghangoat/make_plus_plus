@@ -1,0 +1,14 @@
+
+#Imperative programming in make
+square = $(shell echo $$(($1 * $1)))
+
+nums := 1 2 3 4 68 8 89
+squares := $(foreach n,$(nums),$(call square,$(n)))
+
+all:
+	@echo Squares: $(squares)
+#all:
+#If you uncomment this, it will limit the amount of times you can run the makefile to 3.
+#	@echo 'all:' > Makefile
+#	@echo '	@echo '\''all:'\'' > Makefile' >> Makefile
+#	@echo '	@echo '\''	@echo '\\\'\''all:'\\\'\'''\'\'' > Makefile'\'' >> Makefile' >> Makefile
